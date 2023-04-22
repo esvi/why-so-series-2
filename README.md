@@ -3,17 +3,14 @@
 
 ![logo](https://user-images.githubusercontent.com/1637621/233794695-7a5c4105-6bfd-4b54-9e27-975847241e48.png)
 
-## Install dependencies
-```
-npm install
-```
+## Run in browser
 
-### Run in browser
 ```
+npm i
 npm run serve
 ```
 
-### Docker
+## Docker
 ```
 docker build -t esvi/wss .
 docker run --rm -p 8080:8080 esvi/wss
