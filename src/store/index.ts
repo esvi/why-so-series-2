@@ -19,38 +19,38 @@ export const useSeriesStore = defineStore("series", {
           // we have to do some magic to get usable
           // genre data
           this.genres = this.getSortedGenres(this.shows);
-
-          return this.shows;
         })
         .catch((error: Error) => {
           this.erorrHandler(error);
         });
     },
-    async getShowById(id: any) {
-      // MazeTvService.getById(id)
-      //   .then((response: ResponseData) => {
-      //     this.show = response.data;
-      //     return this.show;
-      //   })
-      //   .catch((error: Error) => {
-      //     this.erorrHandler(error);
-      //   });
+    async getShowById(id: string) {
+      MazeTvService.getById(id)
+        .then((response: ResponseData) => {
+          this.show = response.data;
+        })
+        .catch((error: Error) => {
+          this.erorrHandler(error);
+        });
     },
     async getShowsByQuery(query: any) {
-      // MazeTvService.getByQuery(query)
-      //   .then((response: ResponseData) => {
-      //     const path = '/search';
-      //     if (path !== router.history.current.path) router.push(path);
-      //     this.results = response.data;
-      //     return this.results;
-      //   })
-      //   .catch((error: Error) => {
-      //     this.erorrHandler(error);
-      //   });
+      console.log("--- QUERY ---", query);
+
+      MazeTvService.getByQuery(query)
+        .then((response: ResponseData) => {
+          this.results = response.data;
+
+          console.log("results", response.data);
+
+          // const path = '/search';
+          // if (path !== router.history.current.path) router.push(path);
+        })
+        .catch((error: Error) => {
+          this.erorrHandler(error);
+        });
     },
     getSortedGenres(shows: any) {
       const allShows = shows || [];
-
       const unsortedGenres = <any>{};
       let sortedGenres = <any>[];
 

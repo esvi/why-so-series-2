@@ -1,17 +1,22 @@
 <template>
   <section class="carousel-shows">
+    <!-- Carousel -->
     <Carousel v-bind="settings" :breakpoints="breakpoints">
+      <!-- Slide -->
       <Slide v-for="(show, index) in props.shows" :key="index">
         <div class="carousel__item">
           <router-link :to="{ path: '/show/' + show.id }">
+            <!-- Thumbnail -->
             <ImageThumbnail v-if="show.image" :image="show.image.medium" />
 
             <div class="show-carousel__overlay">
+              <!-- Star rating -->
               <div v-if="show.rating" class="show-carousel__rating">
                 <font-awesome-icon icon="star" />
                 {{ show.rating.average }}
               </div>
 
+              <!-- Title & premiere year -->
               <h3 v-if="show.name" class="text-center text-white">
                 {{ show.name }}
 
@@ -24,6 +29,7 @@
         </div>
       </Slide>
 
+      <!-- Navigation -->
       <template #addons>
         <Navigation />
       </template>
@@ -32,14 +38,21 @@
 </template>
 
 <script setup lang="ts">
+// Imports: Vue
 import { defineProps } from "vue";
+
+// Imports: Third-party
 import { Carousel, Slide, Navigation } from "vue3-carousel";
+
+// Imports: Components
 import ImageThumbnail from "./ImageThumbnail.vue";
 
+// Props: Component
 const props = defineProps<{
   shows: Array<any>;
 }>();
 
+// Props: Carousel
 const settings = {
   itemsToShow: 1,
   itemsToScroll: 1,

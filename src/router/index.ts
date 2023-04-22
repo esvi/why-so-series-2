@@ -10,13 +10,13 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/show/:id",
     name: "show",
-    component: () => import("../views/ShowView.vue"),
+    component: () => import("../views/ShowView.vue"), // Lazy load
   },
-  // {
-  //   path: "/search",
-  //   name: "search",
-  //   component: () => import("../views/SearchView.vue"),
-  // },
+  {
+    path: "/search",
+    name: "search",
+    component: () => import("../views/SearchView.vue"), // Lazy load
+  },
 ];
 
 const router = createRouter({

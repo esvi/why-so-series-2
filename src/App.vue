@@ -6,11 +6,16 @@
 </template>
 
 <script setup lang="ts">
+// Imports: Store
 import { useSeriesStore } from "./store";
+
+// Imports: Components
 import NavBar from "./components/NavBar.vue";
 
+// Props: Store
 const store = useSeriesStore();
 
+// Pre-fetch shows
 store.getAllShows();
 </script>
 

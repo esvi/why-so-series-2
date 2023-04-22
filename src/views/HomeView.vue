@@ -4,6 +4,8 @@
     <section v-show="genres" v-for="(genre, index) in genres" :key="index">
       <div v-if="genre.shows">
         <h2 class="show-listing__heading" v-text="genre.genre"></h2>
+
+        <!-- Show reel -->
         <CarouselShows v-if="genre.shows" :shows="genre.shows" />
       </div>
     </section>
@@ -11,10 +13,14 @@
 </template>
 
 <script setup lang="ts">
+// Imports: Store
 import { storeToRefs } from "pinia";
 import { useSeriesStore } from "../store";
+
+// Imports: Components
 import CarouselShows from "@/components/CarouselShows.vue";
 
+// Props: Store
 const store = useSeriesStore();
 const { genres } = storeToRefs(store);
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="show-summary">
-    <!-- Title and status -->
+    <!-- Title & status -->
     <div v-if="props.show.name">
       <h2 v-if="props.type === 'search'">
         {{ props.show.name }}
@@ -14,7 +14,7 @@
     <!-- Premiered date -->
     <h6 v-if="props.show.premiered">Premiered on {{ props.show.premiered }}</h6>
 
-    <!-- Rating-->
+    <!-- Star rating-->
     <!-- <StarRating v-if="props.show.rating" :rating="props.show.rating.average /> -->
 
     <!-- Genres -->
@@ -28,7 +28,7 @@
       </span>
     </h5>
 
-    <!-- Summary -->
+    <!-- Plot summary -->
     <div v-if="props.show.summary" class="show-summary__summary">
       <h3 v-if="props.type === 'details'" class="show-summary__plot-heading">
         Plot
@@ -131,10 +131,14 @@
 </template>
 
 <script setup lang="ts">
+// Imports: Vue
 import { defineProps } from "vue";
-// import StarRating from "./StarRating.vue";
-import ImageThumbnail from "./ImageThumbnail.vue";
 
+// Imports: Components
+import ImageThumbnail from "./ImageThumbnail.vue";
+// import StarRating from "./StarRating.vue";
+
+// Props
 const props = defineProps<{
   show: any;
   type: string;

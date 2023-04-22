@@ -5,8 +5,10 @@
 </template>
 
 <script setup lang="ts">
+// Imports
 import { defineProps } from "vue";
 
+// Props
 const props = defineProps<{
   image: string;
 }>();
