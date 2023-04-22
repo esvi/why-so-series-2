@@ -1,0 +1,284 @@
+/**
+	Spacing Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/**
+	Breakpoints
+ */
+$bp-xs: 0px !default;
+$bp-sm: 768px !default;
+$bp-md: 991px !default;
+$bp-lg: 1025px !default;
+$bp-xl: 1281px !default;
+
+/**
+	Spacers
+ */
+$s-xs: 20px !default;
+$s-sm: 30px !default;
+$s-md: 40px !default;
+$s-lg: 50px !default;
+$s-xl: 60px !default;
+
+/** Example:
+	 @include padding(1, 0.5, 1, 0.5, !important);
+ */
+@mixin padding($top: 0.5, $right: 0.5, $bottom: 0.5, $left: 0.5, $important: null) {
+	
+	// Mobile
+	padding: ($s-xs * $top) ($s-xs * $right) ($s-xs * $bottom) ($s-xs * $left) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		padding: ($s-sm * $top) ($s-sm * $right) ($s-sm * $bottom) ($s-sm * $left) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		padding: ($s-md * $top) ($s-md * $right) ($s-md * $bottom) ($s-md * $left) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		padding: ($s-lg * $top) ($s-lg * $right) ($s-lg * $bottom) ($s-lg * $left) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		padding: ($s-xl * $top) ($s-xl * $right) ($s-xl * $bottom) ($s-xl * $left) $important;
+	}
+	
+}
+
+/** Example:
+	 @include paddingLeft(0.75, !important);
+ */
+@mixin paddingLeft($padding: 0.5, $important: null) {
+	
+	// Mobile
+	padding-left: ($s-xs * $padding) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		padding-left: ($s-sm * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		padding-left: ($s-md * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		padding-left: ($s-lg * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		padding-left: ($s-xl * $padding) $important;
+	}
+	
+}
+
+/** Example:
+	 @include paddingRight(0.75, !important);
+ */
+@mixin paddingRight($padding: 0.5, $important: null) {
+	
+	// Mobile
+	padding-right: ($s-xs * $padding) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		padding-right: ($s-sm * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		padding-right: ($s-md * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		padding-right: ($s-lg * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		padding-right: ($s-xl * $padding) $important;
+	}
+	
+}
+
+/** Example:
+	 @include paddingTop(0.75, !important);
+ */
+@mixin paddingTop($padding: 0.5, $important: null) {
+	
+	// Mobile
+	padding-top: ($s-xs * $padding) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		padding-top: ($s-sm * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		padding-top: ($s-md * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		padding-top: ($s-lg * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		padding-top: ($s-xl * $padding) $important;
+	}
+	
+}
+
+/** Example:
+	 @include paddingBottom(0.75, !important);
+ */
+@mixin paddingBottom($padding: 0.5, $important: null) {
+	
+	// Mobile
+	padding-bottom: ($s-xs * $padding) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		padding-bottom: ($s-sm * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		padding-bottom: ($s-md * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		padding-bottom: ($s-lg * $padding) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		padding-bottom: ($s-xl * $padding) $important;
+	}
+	
+}
+
+/** Example:
+	 @include margin(1, 0.5, 1, 0.5, !important);
+ */
+@mixin margin($top: 0.5, $right: 0.5, $bottom: 0.5, $left: 0.5, $important: null) {
+	
+	// Mobile
+	margin: ($s-xs * $top) ($s-xs * $right) ($s-xs * $bottom) ($s-xs * $left) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		margin: ($s-sm * $top) ($s-sm * $right) ($s-sm * $bottom) ($s-sm * $left) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		margin: ($s-md * $top) ($s-md * $right) ($s-md * $bottom) ($s-md * $left) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		margin: ($s-lg * $top) ($s-lg * $right) ($s-lg * $bottom) ($s-lg * $left) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		margin: ($s-xl * $top) ($s-xl * $right) ($s-xl * $bottom) ($s-xl * $left) $important;
+	}
+	
+}
+
+/** Example:
+	 @include marginLeft(0.75, !important);
+ */
+@mixin marginLeft($margin: 0.5, $important: null) {
+	
+	// Mobile
+	margin-left: ($s-xs * $margin) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		margin-left: ($s-sm * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		margin-left: ($s-md * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		margin-left: ($s-lg * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		margin-left: ($s-xl * $margin) $important;
+	}
+	
+}
+
+/** Example:
+	 @include marginRight(0.75, !important);
+ */
+@mixin marginRight($margin: 0.5, $important: null) {
+	
+	// Mobile
+	margin-right: ($s-xs * $margin) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		margin-right: ($s-sm * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		margin-right: ($s-md * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		margin-right: ($s-lg * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		margin-right: ($s-xl * $margin) $important;
+	}
+	
+}
+
+/** Example:
+	 @include marginTop(0.75, !important);
+ */
+@mixin marginTop($margin: 0.5, $important: null) {
+	
+	// Mobile
+	margin-top: ($s-xs * $margin) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		margin-top: ($s-sm * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		margin-top: ($s-md * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		margin-top: ($s-lg * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		margin-top: ($s-xl * $margin) $important;
+	}
+
+}
+
+/** Example:
+	 @include marginBottom(0.75, !important);
+ */
+@mixin marginBottom($margin: 0.5, $important: null) {
+	
+	// Mobile
+	margin-bottom: ($s-xs * $margin) $important;
+	
+	@media (min-width: #{$bp-sm}) {
+		margin-bottom: ($s-sm * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-md}) {
+		margin-bottom: ($s-md * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-lg}) {
+		margin-bottom: ($s-lg * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-xl}) {
+		margin-bottom: ($s-xl * $margin) $important;
+	}
+
+}

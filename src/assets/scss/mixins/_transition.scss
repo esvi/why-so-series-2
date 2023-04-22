@@ -1,0 +1,16 @@
+/**
+	Transition Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/** Example:
+	@include transition(width, 0.4s, ease-in-out);
+ */
+@mixin transition($transition: all, $seconds: 1s, $easing: ease-in-out) {
+	-webkit-transition: $transition $seconds $easing;
+	-moz-transition: $transition $seconds $easing;
+	-ms-transition: $transition $seconds $easing;
+	transition: $transition $seconds $easing;
+}

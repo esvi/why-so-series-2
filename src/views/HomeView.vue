@@ -1,9 +1,9 @@
 <!-- Listing view for shows -->
 <template>
-  <div class="home">
+  <div class="home show-listing">
     <section v-show="genres" v-for="(genre, index) in genres" :key="index">
       <div v-if="genre.shows">
-        <h2 v-text="genre.genre"></h2>
+        <h2 class="show-listing__heading" v-text="genre.genre"></h2>
         <CarouselShows v-if="genre.shows" :shows="genre.shows" />
       </div>
     </section>
@@ -12,23 +12,21 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { onMounted, watch } from "vue";
 import { useSeriesStore } from "../store";
 import CarouselShows from "@/components/CarouselShows.vue";
 
 const store = useSeriesStore();
-const { shows, genres } = storeToRefs(store);
-
-watch(shows, () => {
-  console.log("WATCH shows", shows);
-});
-
-watch(genres, () => {
-  console.log("WATCH genres", genres);
-});
-
-onMounted(() => {
-  console.log("MOUNTED shows", shows);
-  console.log("MOUNTED genres", genres);
-});
+const { genres } = storeToRefs(store);
 </script>
+
+<style scoped lang="scss">
+@import "../assets/scss/global.scss";
+
+.show-listing {
+  &__heading {
+    @include marginBottom(0.5);
+    @include paddingBottom(0.25);
+    border-bottom: 1px dashed $gold-highlight;
+  }
+}
+</style>

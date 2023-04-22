@@ -1,0 +1,34 @@
+/**
+	Gradient Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/** Example:
+	@include gradient-linear(180deg, white, white, black);
+ */
+@mixin gradient-linear($direction: 90deg, $fallback: white, $from: white, $to: black) {
+	background: $fallback;
+	background: -webkit-linear-gradient($direction, $from 0%, $to 100%);
+	background: -moz-linear-gradient($direction, $from 0%,  100%);
+	background: -o-linear-gradient($direction, $from 0%, $to 100%);
+	background: -ms-linear-gradient($direction, $from 0%, $to 100%);
+	background: linear-gradient($direction, $from 0%, $to 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = $from, endColorstr = $to, GradientType = 1);
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = $from, endColorstr = $to, GradientType = 1);
+}
+
+/** Example:
+	@include gradient-radial(white, white, black);
+ */
+@mixin gradient-radial($fallback: white, $from: white, $to: black) {
+	background: $fallback;
+	background: -webkit-radial-gradient(circle, $from 0%, $to 100%);
+	background: -moz-radial-gradient(circle, $from 0%, $to 100%);
+	background: -o-radial-gradient(circle, $from 0%, $to 100%);
+	background: -ms-radial-gradient(circle, $from 0%, $to 100%);
+	background: radial-gradient(circle, $from 0%, $to 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = $from, endColorstr = $to, GradientType = 1);
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = $from, endColorstr = $to, GradientType = 1);
+}

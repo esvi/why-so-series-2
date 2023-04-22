@@ -7,11 +7,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "home",
     component: HomeView,
   },
-  // {
-  //   path: "/show/:id",
-  //   name: "show",
-  //   component: () => import("../views/ShowView.vue"),
-  // },
+  {
+    path: "/show/:id",
+    name: "show",
+    component: () => import("../views/ShowView.vue"),
+  },
   // {
   //   path: "/search",
   //   name: "search",

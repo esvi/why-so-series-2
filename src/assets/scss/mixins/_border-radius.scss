@@ -1,0 +1,71 @@
+/**
+	Border Radius Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/** Example:
+	@include border-radius(5px, !important);
+ */
+@mixin border-radius($radius: 0, $important: null) {
+	-webkit-border-radius: $radius $important;
+	-moz-border-radius: $radius $important;
+	border-radius: $radius $important;
+}
+
+/** Example:
+	@include border-top-right-radius(5px, !important);
+ */
+@mixin border-top-right-radius($radius: 0, $important: null) {
+	-webkit-border-top-right-radius: $radius $important;
+	-moz-border-top-right-radius: $radius $important;
+	border-top-right-radius: $radius $important;
+}
+
+/** Example:
+	@include border-bottom-right-radius(5px, !important);
+ */
+@mixin border-bottom-right-radius($radius: 0, $important: null) {
+	-webkit-border-bottom-right-radius: $radius $important;
+	-moz-border-bottom-right-radius: $radius $important;
+	border-bottom-right-radius: $radius $important;
+}
+
+/** Example:
+	@include border-bottom-left-radius(5px, !important);
+ */
+@mixin border-bottom-left-radius($radius: 0, $important: null) {
+	-webkit-border-bottom-left-radius: $radius $important;
+	-moz-border-bottom-left-radius: $radius $important;
+	border-bottom-left-radius: $radius $important;
+}
+
+/** Example:
+	@include border-top-left-radius(5px, !important);
+ */
+@mixin border-top-left-radius($radius: 0, $important: null) {
+	-webkit-border-top-left-radius: $radius $important;
+	-moz-border-top-left-radius: $radius $important;
+	border-top-left-radius: $radius $important;
+}
+
+/** Example:
+	@include border-radii(5px, 5px, 5px, 5px, !important);
+ */
+@mixin border-radii($tr, $br, $bl, $tl, $important: null) {
+	-webkit-border-top-right-radius: $tr $important;
+	-webkit-border-bottom-right-radius: $br $important;
+	-webkit-border-bottom-left-radius: $bl $important;
+	-webkit-border-top-left-radius:  $tl $important;
+	
+	-moz-border-top-right-radius: $tr $important;
+	-moz-border-bottom-right-radius: $br $important;
+	-moz-border-bottom-left-radius: $bl $important;
+	-moz-border-top-left-radius:  $tl $important;
+	
+	border-top-right-radius: $tr $important;
+	border-bottom-right-radius: $br $important;
+	border-bottom-left-radius: $bl $important;
+	border-top-left-radius:  $tl $important;
+}

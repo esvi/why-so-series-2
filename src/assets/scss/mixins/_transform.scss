@@ -1,0 +1,16 @@
+/**
+	Transform Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/** Example:
+	@include transform(scale(1.5));
+ */
+@mixin transform($transform) {
+	-webkit-transform: $transform;
+	-moz-transform: $transform;
+	-ms-transform: $transform;
+	transform: $transform;
+}

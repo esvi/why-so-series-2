@@ -1,12 +1,13 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link>
+    <NavBar />
   </nav>
   <router-view />
 </template>
 
 <script setup lang="ts">
 import { useSeriesStore } from "./store";
+import NavBar from "./components/NavBar.vue";
 
 const store = useSeriesStore();
 
@@ -14,24 +15,18 @@ store.getAllShows();
 </script>
 
 <style lang="scss">
+@import "./assets/scss/global.scss";
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  background: black;
+  color: white;
+  width: 100%;
+  min-height: 100vh;
+  @include paddingTop(0.5);
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#content {
+  @include paddingTop(1);
+  @include paddingBottom(1);
 }
 </style>

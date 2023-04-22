@@ -1,0 +1,23 @@
+/**
+	Box Shadow Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/** Example:
+	@include box-shadow(5px, 5px, 5px, 0, rgba(255, 255, 255, .15), !important);
+ */
+@mixin box-shadow($top: 0, $bottom: 0, $blur: 0, $spread: 0, $rgba: rgba(0, 0, 0, 0.5), $important: null) {
+	-webkit-box-shadow: $top $bottom $blur $spread #{$rgba} $important;
+	-moz-box-shadow: $top $bottom $blur $spread #{$rgba} $important;
+	box-shadow: $top $bottom $blur $spread #{$rgba} $important;
+}
+/** Example:
+	@include box-shadow-inset(5px, 5px, 5px, 0, rgba(255, 255, 255, .15), !important);
+ */
+@mixin box-shadow-inset($top: 0, $bottom: 0, $blur: 0, $spread: 0, $rgba: rgba(0, 0, 0, 0.5), $important: null) {
+	-webkit-box-shadow: inset $top $bottom $blur $spread #{$rgba} $important;
+	-moz-box-shadow: inset $top $bottom $blur $spread #{$rgba} $important;
+	box-shadow: inset $top $bottom $blur $spread #{$rgba} $important;
+}

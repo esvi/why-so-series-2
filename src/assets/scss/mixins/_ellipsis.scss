@@ -1,0 +1,19 @@
+/**
+	Ellipsis Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/** Example:
+	@include ellipsis(#000000);
+	@include ellipsis(black);
+	@include ellipsis(rgba(0, 0, 0, 1));
+ */
+@mixin ellipsis($color: black) {
+	content: "\2026";
+	color: $color;
+	display: inline-block;
+	margin: 1px 2px;
+	@include align-self(flex-end);
+}

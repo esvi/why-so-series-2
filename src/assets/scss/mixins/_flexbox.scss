@@ -1,0 +1,240 @@
+/**
+	Flexbox Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/** Example:
+	@include display-flex;
+ */
+@mixin display-flex($important: null) {
+	display: -webkit-box $important;
+	display: -moz-box $important;
+	display: -webkit-flex $important;
+	display: -ms-flexbox $important;
+	display: flex $important;
+}
+
+/** Example:
+	@include inline-flex;
+ */
+@mixin inline-flex($important: null) {
+	display: -webkit-inline-box $important;
+	display: -moz-inline-box $important;
+	display: -webkit-inline-flex $important;
+	display: -ms-inline-flexbox $important;
+	display: inline-flex $important;
+}
+
+/** Example:
+	@include flex-direction(row);
+ */
+@mixin flex-direction($value: row, $important: null) {
+	
+	@if $value == row-reverse {
+		-webkit-box-direction: reverse $important;
+		-webkit-box-orient: horizontal $important;
+		-moz-box-direction: reverse $important;
+		-moz-box-orient: horizontal $important;
+	} @else if $value == column {
+		-webkit-box-direction: normal $important;
+		-webkit-box-orient: vertical $important;
+		-moz-box-direction: normal $important;
+		-moz-box-orient: vertical $important;
+	} @else if $value == column-reverse {
+		-webkit-box-direction: reverse $important;
+		-webkit-box-orient: vertical $important;
+		-moz-box-direction: reverse $important;
+		-moz-box-orient: vertical $important;
+	} @else {
+		-webkit-box-direction: normal $important;
+		-webkit-box-orient: horizontal $important;
+		-moz-box-direction: normal $important;
+		-moz-box-orient: horizontal $important;
+	}
+	
+	-webkit-flex-direction: $value $important;
+	-ms-flex-direction: $value $important;
+	flex-direction: $value $important;
+	
+}
+
+/** Example:
+	@include flex-wrap(nowrap);
+ */
+@mixin flex-wrap($value: nowrap, $important: null) {
+	
+	@if $value == nowrap {
+		-ms-flex-wrap: none $important;
+	} @else {
+		-ms-flex-wrap: $value $important;
+	}
+	
+	-webkit-flex-wrap: $value $important;
+	flex-wrap: $value $important;
+	
+}
+
+/** Example:
+	@include flex-flow(row nowrap);
+ */
+@mixin flex-flow($values: (row nowrap), $important: null) {
+	-webkit-flex-flow: $values $important;
+	-ms-flex-flow: $values $important;
+	flex-flow: $values $important;
+}
+
+/** Example:
+	@include order(0);
+ */
+@mixin order($value: 0, $important: null) {
+	-webkit-box-ordinal-group: $value + 1 $important;
+	-moz-box-ordinal-group: $value + 1 $important;
+	-webkit-order: $value $important;
+	-ms-flex-order: $value $important;
+	order: $value $important;
+}
+
+/** Example:
+	@include flex-grow(1);
+ */
+@mixin flex-grow($value: 1, $important: null) {
+	-webkit-box-flex: $value $important;
+	-moz-box-flex: $value $important;
+	-webkit-flex-grow: $value $important;
+	-ms-flex: $value $important;
+	flex-grow: $value $important;
+}
+
+/** Example:
+	@include flex-shrink(0);
+ */
+@mixin flex-shrink($value: 0, $important: null) {
+	-webkit-flex-shrink: $value $important;
+	-moz-flex-shrink: $value $important;
+	-ms-flex: $value $important;
+	flex-shrink: $value $important;
+}
+
+/** Example:
+	@include flex-basis(auto);
+ */
+@mixin flex-basis($value: auto, $important: null) {
+	-webkit-flex-basis: $value $important;
+	flex-basis: $value $important;
+}
+
+/** Example:
+	@include flex(0, 0, auto);
+ */
+@mixin flex($flex-grow: 1, $flex-shrink: 0, $flex-basis: auto, $important: null) {
+
+	$flex-grow-box-flex: $flex-grow;
+
+	@if type-of($flex-grow) == 'list' {
+		$flex-grow-boxflex: nth($flex-grow, 1);
+	}
+	
+	-webkit-box: $flex-grow-box-flex $important;
+	-moz-box: $flex-grow-box-flex $important;
+	
+	-webkit-flex: $flex-grow $flex-shrink $flex-basis $important;
+	-ms-flexbox: $flex-grow $flex-shrink $flex-basis $important;
+	flex: $flex-grow $flex-shrink $flex-basis $important;
+	
+}
+
+/** Example:
+	@include justify-content(flex-start);
+ */
+@mixin justify-content($value: flex-start, $important: null) {
+	
+	@if $value == flex-start {
+		-webkit-box-pack: start $important;
+		-moz-box-pack: start $important;
+		-ms-flex-pack: start $important;
+	} @else if $value == flex-end {
+		-webkit-box-pack: end $important;
+		-moz-box-pack: end $important;
+		-ms-flex-pack: end $important;
+	} @else if $value == space-between {
+		-webkit-box-pack: justify $important;
+		-moz-box-pack: justify $important;
+		-ms-flex-pack: justify $important;
+	} @else if $value == space-around {
+		-ms-flex-pack: distribute $important;
+	} @else {
+		-webkit-box-pack: $value $important;
+		-moz-box-pack: $value $important;
+		-ms-flex-pack: $value $important;
+	}
+	
+	-webkit-justify-content: $value $important;
+	justify-content: $value $important;
+	
+}
+
+/** Example:
+	@include align-items(stretch);
+ */
+@mixin align-items($value: stretch, $important: null) {
+	
+	@if $value == flex-start {
+		-webkit-box-align: start $important;
+		-moz-box-align: start $important;
+		-ms-flex-align: start $important;
+	} @else if $value == flex-end {
+		-webkit-box-align: end $important;
+		-moz-box-align: end $important;
+		-ms-flex-align: end $important;
+	} @else {
+		-webkit-box-align: $value $important;
+		-moz-box-align: $value $important;
+		-ms-flex-align: $value $important;
+	}
+	
+	-webkit-align-items: $value $important;
+	align-items: $value $important;
+	
+}
+
+/** Example:
+	@include align-self(auto);
+ */
+@mixin align-self($value: auto, $important: null) {
+	
+	@if $value == flex-start {
+		-ms-flex-item-align: start $important;
+	} @else if $value == flex-end {
+		-ms-flex-item-align: end $important;
+	} @else {
+		-ms-flex-item-align: $value $important;
+	}
+	
+	-webkit-align-self: $value $important;
+	align-self: $value $important;
+	
+}
+
+/** Example:
+	@include align-content(stretch);
+ */
+@mixin align-content($value: stretch, $important: null) {
+	
+	@if $value == flex-start {
+		-ms-flex-line-pack: start $important;
+	} @else if $value == flex-end {
+		-ms-flex-line-pack: end $important;
+	} @else if $value == space-between {
+		-ms-flex-line-pack: justify $important;
+	} @else if $value == space-around {
+		-ms-flex-line-pack: distribute $important;
+	} @else {
+		-ms-flex-line-pack: $value $important;
+	}
+	
+	-webkit-align-content: $value $important;
+	align-content: $value $important;
+	
+}

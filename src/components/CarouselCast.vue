@@ -1,7 +1,7 @@
 <template>
   <section class="carousel-shows">
     <Carousel v-bind="settings" :breakpoints="breakpoints">
-      <Slide v-for="(show, index) in props.shows" :key="index">
+      <Slide v-for="(show, index) in props.cast" :key="index">
         <div class="carousel__item">
           <router-link :to="{ path: '/show/' + show.id }">
             <ImageThumbnail v-if="show.image" :image="show.image.medium" />
@@ -37,7 +37,7 @@ import { Carousel, Slide, Navigation } from "vue3-carousel";
 import ImageThumbnail from "./ImageThumbnail.vue";
 
 const props = defineProps<{
-  shows: Array<any>;
+  cast: Array<any>;
 }>();
 
 const settings = {

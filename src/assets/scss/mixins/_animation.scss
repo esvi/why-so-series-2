@@ -1,0 +1,45 @@
+/**
+	Animation Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/** Example:
+	@include keyframes(bounce) {
+		0% {
+			top: 0;
+		}
+		50% {
+			top: 50%;
+		}
+		100% {
+			top: 0;
+		};
+	}
+	@include keyframes(spin) {
+		100% {
+			rotate(360deg)
+		};
+	}
+ */
+@mixin keyframes ($animation) {
+	
+	@-webkit-keyframes #{$animation} {
+		@content;
+	}
+	
+	@keyframes #{$animation} {
+		@content;
+	}
+	
+}
+
+/** Example:
+	@include animation(spin, 0.6s, 5, ease-in-out);
+ */
+@mixin animation($animation, $duration: 1s, $loop: infinite, $ease: ease-in-out) {
+	-webkit-animation: $animation $duration $loop $ease;
+	-moz-animation: $animation $duration $loop $ease;
+	animation: $animation $duration $loop $ease;
+}

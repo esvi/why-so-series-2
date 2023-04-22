@@ -1,0 +1,14 @@
+/**
+	Sticky Mixins
+	Author: esvi
+	Updated: 20-04-2023
+	V1.0.0
+**/
+
+/** Example:
+	@include sticky;
+ */
+@mixin sticky {
+	position: -webkit-sticky;
+	position: sticky;
+}
