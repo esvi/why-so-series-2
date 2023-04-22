@@ -36,32 +36,32 @@ onMounted(() => {
 @import "../assets/scss/global.scss";
 
 .show-details {
-		@include display-flex;
-		@include flex-direction(column);
-		@include flex-wrap(nowrap);
-		@include align-items(flex-start);
-		@include justify-content(flex-start);
+  @include display-flex;
+  @include flex-direction(column);
+  @include flex-wrap(nowrap);
+  @include align-items(flex-start);
+  @include justify-content(flex-start);
 
-		@include media-breakpoint-up(lg) {
-			@include flex-direction(row);
-		}
+  @include media-breakpoint-up(lg) {
+    @include flex-direction(row);
+  }
 
-		&__image {
-			width: 100%;
+  &__image {
+    width: 100%;
 
-			@include media-breakpoint-up(lg) {
-				width: 50%;
-				max-width: 600px;
-				@include marginRight(1);
-			}
-		}
+    @include media-breakpoint-up(lg) {
+      width: 50%;
+      max-width: 600px;
+      @include marginRight(1);
+    }
+  }
 
-		&__meta {
-			width: 100%;
+  &__meta {
+    width: 100%;
 
-			@include media-breakpoint-up(lg) {
-				max-width: calc(100% - 600px);
-			}
-		}
-	}
+    @include media-breakpoint-up(lg) {
+      max-width: calc(100% - 600px);
+    }
+  }
+}
 </style>
