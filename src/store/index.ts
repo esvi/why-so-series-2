@@ -11,13 +11,9 @@ export const useSeriesStore = defineStore("series", {
   }),
   actions: {
     async getAllShows() {
-      console.log("getAllShows");
-
       MazeTvService.getAll()
         .then((response: ResponseData) => {
           this.shows = response.data;
-
-          console.log("shows results:", this.shows);
 
           // Due to the way the MazeTV free API works
           // we have to do some magic to get usable
@@ -31,14 +27,9 @@ export const useSeriesStore = defineStore("series", {
         });
     },
     async getShowById(id: any) {
-      console.log("getShowById", id);
-
       // MazeTvService.getById(id)
       //   .then((response: ResponseData) => {
       //     this.show = response.data;
-
-      //     console.log("show result:", this.show);
-
       //     return this.show;
       //   })
       //   .catch((error: Error) => {
@@ -46,17 +37,11 @@ export const useSeriesStore = defineStore("series", {
       //   });
     },
     async getShowsByQuery(query: any) {
-      console.log("getShowsByQuery", query);
-
       // MazeTvService.getByQuery(query)
       //   .then((response: ResponseData) => {
       //     const path = '/search';
       //     if (path !== router.history.current.path) router.push(path);
-
       //     this.results = response.data;
-
-      //     console.log("search results:", this.results);
-
       //     return this.results;
       //   })
       //   .catch((error: Error) => {
@@ -64,8 +49,6 @@ export const useSeriesStore = defineStore("series", {
       //   });
     },
     getSortedGenres(shows: any) {
-      console.log("getSortedGenres", shows);
-
       const allShows = shows || [];
 
       const unsortedGenres = <any>{};
@@ -101,8 +84,6 @@ export const useSeriesStore = defineStore("series", {
       return sortedGenres;
     },
     getEmbeddedShowsData(show: any) {
-      console.log("getEmbeddedShowsData", show);
-
       const aShow = show || {};
 
       // Break up episodes into seasons
