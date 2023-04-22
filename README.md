@@ -1,31 +1,36 @@
-# why-so-series-2
 
-## Project setup
+# Why So Series | V2
+
+![logo](https://user-images.githubusercontent.com/1637621/233794695-7a5c4105-6bfd-4b54-9e27-975847241e48.png)
+
+## Install dependencies
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run in browser
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Docker
 ```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
+docker build -t esvi/wss .
+docker run --rm -p 8080:8080 esvi/wss
 ```
 
-### Run your end-to-end tests
+### OR Docker compose
 ```
-npm run test:e2e
+docker compose build
+docker compose up
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+#### Specs
+- Vue3 + TypeScript
+- Pinia
+- Docker
+- API + Axios ([MazeTv](https://www.tvmaze.com/api))
+
+#### TODO
+- Testing (Jest)
+- Styling
