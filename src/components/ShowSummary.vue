@@ -15,7 +15,7 @@
     <h6 v-if="props.show.premiered">Premiered on {{ props.show.premiered }}</h6>
 
     <!-- Star rating-->
-    <!-- <StarRating v-if="props.show.rating" :rating="props.show.rating.average /> -->
+    <StarRating v-if="props.show.rating" :rating="props.show.rating.average" />
 
     <!-- Genres -->
     <h5
@@ -59,17 +59,12 @@
 
     <!-- Cast -->
     <div
-      v-if="props.type === 'details' && props.show._embedded"
+      v-if="props.type === 'details' && props.show.cast"
       class="show-summary__cast"
     >
-      <h3 v-if="props.show._embedded.cast" class="show-summary__cast-heading">
-        Cast
-      </h3>
+      <h3 v-if="props.show.cast" class="show-summary__cast-heading">Cast</h3>
 
-      <CarouselCast
-        v-if="props.show._embedded.cast"
-        :cast="props.show._embedded.cast"
-      />
+      <CarouselCast v-if="props.show.cast" :cast="props.show.cast" />
     </div>
 
     <!-- Seasons -->
@@ -136,7 +131,8 @@ import { defineProps } from "vue";
 
 // Imports: Components
 import ImageThumbnail from "./ImageThumbnail.vue";
-// import StarRating from "./StarRating.vue";
+import CarouselCast from "./CarouselCast.vue";
+import StarRating from "./StarRating.vue";
 
 // Props
 const props = defineProps<{

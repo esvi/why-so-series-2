@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import MazeTvService from "../services/MazeTvService";
 import ResponseData from "@/types/ResponseData";
+import router from "../router";
 
 export const useSeriesStore = defineStore("series", {
   state: () => ({
@@ -27,23 +28,20 @@ export const useSeriesStore = defineStore("series", {
     async getShowById(id: string) {
       MazeTvService.getById(id)
         .then((response: ResponseData) => {
-          this.show = response.data;
+          this.show = this.getEmbeddedShowsData(response.data);
         })
         .catch((error: Error) => {
           this.erorrHandler(error);
         });
     },
-    async getShowsByQuery(query: any) {
-      console.log("--- QUERY ---", query);
+    async getShowsByQuery(query: string) {
+      const path = "/search";
 
       MazeTvService.getByQuery(query)
         .then((response: ResponseData) => {
           this.results = response.data;
 
-          console.log("results", response.data);
-
-          // const path = '/search';
-          // if (path !== router.history.current.path) router.push(path);
+          router.push({ path });
         })
         .catch((error: Error) => {
           this.erorrHandler(error);
@@ -88,6 +86,7 @@ export const useSeriesStore = defineStore("series", {
 
       // Break up episodes into seasons
       if (aShow._embedded) {
+        aShow.cast = aShow._embedded.cast || [];
         aShow.seasons = {};
 
         for (let i = 0; i < aShow._embedded.episodes.length; i++) {

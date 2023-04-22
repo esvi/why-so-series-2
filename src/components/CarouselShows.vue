@@ -70,87 +70,86 @@ const breakpoints = {
 
 <style scoped lang="scss">
 @import "../assets/scss/global.scss";
-
 /*
-	.show-carousel {
-		position: relative;
-		@include marginBottom(1);
+.show-carousel {
+  position: relative;
+  @include marginBottom(1);
 
-		&__nav {
-			position: absolute;
-			width: 74px;
-			height: 88px;
-			top: 50%;
-			z-index: 200;
-			@include transform(translateY(-50%));
-			@include transition(all, 0.5s, ease-in-out);
-			@include display-flex;
-			@include align-items(center);
-			@include justify-content(center);
-			padding: 20px;
-			opacity: 0.25;
-			cursor: pointer;
+  &__nav {
+    position: absolute;
+    width: 74px;
+    height: 88px;
+    top: 50%;
+    z-index: 200;
+    @include transform(translateY(-50%));
+    @include transition(all, 0.5s, ease-in-out);
+    @include display-flex;
+    @include align-items(center);
+    @include justify-content(center);
+    padding: 20px;
+    opacity: 0.25;
+    cursor: pointer;
 
-			& svg {
-				font-size: 48px;
-			}
+    & svg {
+      font-size: 48px;
+    }
 
-			&:hover {
-				opacity: 1;
-				background: rgba(0, 0, 0, 0.25);
-				@include transition(all, 0.5s, ease-in-out);
-			}
+    &:hover {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.25);
+      @include transition(all, 0.5s, ease-in-out);
+    }
 
-			// Touch screens
-			@media (any-pointer: coarse) and (any-hover: none) {
-				opacity: 1;
-				background: rgba(0, 0, 0, 0.25);
-			}
+    // Touch screens
+    @media (any-pointer: coarse) and (any-hover: none) {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.25);
+    }
 
-			&--left {
-				left: 0;
-			}
+    &--left {
+      left: 0;
+    }
 
-			&--right {
-				right: 0;
-			}
-		}
+    &--right {
+      right: 0;
+    }
+  }
 
-		&__overlay {
-			cursor: pointer;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 100;
-			opacity: 0;
-			background: rgba(0, 0, 0, 0.5);
-			@include transition(opacity, 0.5s, ease-in-out);
-			@include display-flex;
-			@include align-items(center);
-			@include justify-content(center);
-			@include flex-direction(row);
-			@include flex-wrap(wrap);
-			@include paddingLeft(0.25);
-			@include paddingRight(0.25);
+  &__overlay {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.5);
+    @include transition(opacity, 0.5s, ease-in-out);
+    @include display-flex;
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @include paddingLeft(0.25);
+    @include paddingRight(0.25);
 
-			&:hover {
-				opacity: 1;
-				@include transition(opacity, 0.5s, ease-in-out);
-			}
-		}
+    &:hover {
+      opacity: 1;
+      @include transition(opacity, 0.5s, ease-in-out);
+    }
+  }
 
-		&__rating {
-			position: absolute;
-			min-width: 55px;
-			text-align: center;
-			top: 0;
-			right: 0;
-			padding: 5px;
-			background: darken($gold-highlight, 5);
-			color: white;
-		}
-	}
-  */
+  &__rating {
+    position: absolute;
+    min-width: 55px;
+    text-align: center;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background: darken($gold-highlight, 5);
+    color: white;
+  }
+}
+*/
 </style>

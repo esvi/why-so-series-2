@@ -3,4 +3,4 @@ services:
   series:
     build: .
     ports:
-      - "3080:3080"
+      - "8080:8080"

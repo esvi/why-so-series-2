@@ -71,7 +71,7 @@ const queryString = computed(() => route.params.q);
 
 // Methods
 function search(event: any) {
-  store.getShowsByQuery(event.target.elements.query.value);
+  store.getShowsByQuery(event.target.elements.query.value.toString());
 }
 </script>
 

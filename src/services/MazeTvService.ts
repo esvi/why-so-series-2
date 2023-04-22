@@ -9,8 +9,8 @@ class MazeTvService {
     return http.get(`/shows/${id}?embed[]=cast&embed[]=episodes`);
   }
 
-  getByQuery(query: any): Promise<any> {
-    return http.get(`/shows?q=${query}`);
+  getByQuery(query: string): Promise<any> {
+    return http.get(`/search/shows?q=${query}`);
   }
 }
 

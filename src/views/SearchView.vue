@@ -1,16 +1,32 @@
 <!-- Listing view for shows -->
 <template>
-  <section class="show show-details">
-    <!-- Thumbnail -->
-    <section class="show-details__image">
-      <ImageThumbnail v-if="show.image" :image="show.image.original" />
-    </section>
+  <div class="search show-search-results">
+    <div v-if="results">
+      <div
+        v-for="(result, index) in results"
+        :key="index"
+        class="show-search-results__results"
+      >
+        <!-- Thumbnail -->
+        <div class="show-search-results__image">
+          <router-link :to="{ path: '/show/' + result.show.id }">
+            <ImageThumbnail
+              v-if="result.show.image"
+              :image="result.show.image.original"
+            />
+          </router-link>
+        </div>
 
-    <!-- Show details -->
-    <section class="show-details__meta">
-      <ShowSummary :show="show" :type="'details'" />
-    </section>
-  </section>
+        <div class="show-search-results__meta">
+          <ShowSummary :show="result.show" :type="'search'" />
+        </div>
+      </div>
+    </div>
+
+    <div v-else>
+      <ErrorMessage />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -18,62 +34,52 @@
 import { storeToRefs } from "pinia";
 import { useSeriesStore } from "../store";
 
-// Imports: Router
-import { useRoute } from "vue-router";
-
-// Imports: Vue
-import { onMounted, computed } from "vue";
-
 // Imports: Components
 import ShowSummary from "../components/ShowSummary.vue";
+import ErrorMessage from "../components/ErrorMessage.vue";
 import ImageThumbnail from "../components/ImageThumbnail.vue";
 
 // Props: Store
 const store = useSeriesStore();
-const { show } = storeToRefs(store);
-
-// Props: Router
-const route = useRoute();
-
-// Props: Computed
-const id = computed(() => route.params.id);
-
-// Hooks
-onMounted(() => {
-  store.getShowById(id.value.toString()); // Make sure ID is of type string
-});
+const { results } = storeToRefs(store);
 </script>
 
 <style scoped lang="scss">
 @import "../assets/scss/global.scss";
 
-.show-details {
-  @include display-flex;
-  @include flex-direction(column);
-  @include flex-wrap(nowrap);
-  @include align-items(flex-start);
-  @include justify-content(flex-start);
+.show-search-results {
+  &__results {
+    @include display-flex;
+    @include flex-direction(column);
+    @include align-items(flex-start);
+    @include justify-content(flex-start);
+    @include marginBottom(0.5);
+    @include paddingBottom(0.5);
+    border-bottom: 1px dashed $gold-highlight;
 
-  @include media-breakpoint-up(lg) {
-    @include flex-direction(row);
+    &:last-of-type {
+      border-bottom: 0;
+    }
+
+    @include media-breakpoint-up(sm) {
+      @include flex-direction(row);
+    }
   }
 
   &__image {
     width: 100%;
+    @include marginBottom(0.5);
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(sm) {
       width: 50%;
-      max-width: 600px;
-      @include marginRight(1);
+      max-width: 200px;
+      @include marginRight(0.5);
+      margin-bottom: 0;
     }
   }
 
   &__meta {
     width: 100%;
-
-    @include media-breakpoint-up(lg) {
-      max-width: calc(100% - 600px);
-    }
   }
 }
 </style>
