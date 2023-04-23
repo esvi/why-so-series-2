@@ -18,6 +18,9 @@ const props = defineProps<{
 @import "../assets/scss/global.scss";
 
 .image-thumbnail {
+  position: relative;
+  display: block;
+
   & img {
     position: relative;
     width: 100%;

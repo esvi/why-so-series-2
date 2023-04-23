@@ -6,7 +6,7 @@
         <h2 class="show-listing__heading" v-text="genre.genre"></h2>
 
         <!-- Show reel -->
-        <CarouselShows v-if="genre.shows" :shows="genre.shows" />
+        <ShowCarousel v-if="genre.shows" :shows="genre.shows" />
       </div>
     </section>
   </div>
@@ -18,7 +18,7 @@ import { storeToRefs } from "pinia";
 import { useSeriesStore } from "../store";
 
 // Imports: Components
-import CarouselShows from "@/components/CarouselShows.vue";
+import ShowCarousel from "@/components/ShowCarousel.vue";
 
 // Props: Store
 const store = useSeriesStore();
@@ -31,7 +31,7 @@ const { genres } = storeToRefs(store);
 .show-listing {
   &__heading {
     @include marginBottom(0.5);
-    @include paddingBottom(0.25);
+    @include padding(0, 0.75, 0.25, 0.75);
     border-bottom: 1px dashed $gold-highlight;
   }
 }

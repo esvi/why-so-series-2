@@ -1,16 +1,18 @@
 /**
 	Breakpoints
  */
-$bp-xs: 0px !default;
+$bp-xxs: 0px !default;
+$bp-xs: 576px !default;
 $bp-sm: 768px !default;
-$bp-md: 991px !default;
-$bp-lg: 1025px !default;
-$bp-xl: 1281px !default;
+$bp-md: 992px !default;
+$bp-lg: 1200px !default;
+$bp-xl: 1400px !default;
+$bp-xxl: 1600px !default;
 
 /**
 	Spacers
  */
-$s-xs: 20px !default;
+$s-xxs: 20px !default;
 $s-sm: 30px !default;
 $s-md: 40px !default;
 $s-lg: 50px !default;
@@ -22,8 +24,12 @@ $s-xl: 60px !default;
 @mixin padding($top: 0.5, $right: 0.5, $bottom: 0.5, $left: 0.5, $important: null) {
 	
 	// Mobile
-	padding: ($s-xs * $top) ($s-xs * $right) ($s-xs * $bottom) ($s-xs * $left) $important;
-	
+	padding: ($s-xxs * $top) ($s-xxs * $right) ($s-xxs * $bottom) ($s-xxs * $left) $important;	
+
+	@media (min-width: #{$bp-xs}) {
+		padding: ($s-xxs * $top) ($s-xxs * $right) ($s-xxs * $bottom) ($s-xxs * $left) $important;
+	}
+
 	@media (min-width: #{$bp-sm}) {
 		padding: ($s-sm * $top) ($s-sm * $right) ($s-sm * $bottom) ($s-sm * $left) $important;
 	}
@@ -40,6 +46,10 @@ $s-xl: 60px !default;
 		padding: ($s-xl * $top) ($s-xl * $right) ($s-xl * $bottom) ($s-xl * $left) $important;
 	}
 	
+	@media (min-width: #{$bp-xxl}) {
+		padding: ($s-xl * $top) ($s-xl * $right) ($s-xl * $bottom) ($s-xl * $left) $important;
+	}
+	
 }
 
 /** Example:
@@ -48,7 +58,11 @@ $s-xl: 60px !default;
 @mixin paddingLeft($padding: 0.5, $important: null) {
 	
 	// Mobile
-	padding-left: ($s-xs * $padding) $important;
+	padding-left: ($s-xxs * $padding) $important;
+	
+	@media (min-width: #{$bp-xs}) {
+		padding-left: ($s-xxs * $padding) $important;
+	}
 	
 	@media (min-width: #{$bp-sm}) {
 		padding-left: ($s-sm * $padding) $important;
@@ -66,6 +80,10 @@ $s-xl: 60px !default;
 		padding-left: ($s-xl * $padding) $important;
 	}
 	
+	@media (min-width: #{$bp-xxl}) {
+		padding-left: ($s-xl * $padding) $important;
+	}
+	
 }
 
 /** Example:
@@ -74,10 +92,14 @@ $s-xl: 60px !default;
 @mixin paddingRight($padding: 0.5, $important: null) {
 	
 	// Mobile
-	padding-right: ($s-xs * $padding) $important;
+	padding-right: ($s-xxs * $padding) $important;
+	
+	@media (min-width: #{$bp-xs}) {
+		padding-right: ($s-sm * $padding) $important;
+	}
 	
 	@media (min-width: #{$bp-sm}) {
-		padding-right: ($s-sm * $padding) $important;
+		padding-right: ($s-xxs * $padding) $important;
 	}
 	
 	@media (min-width: #{$bp-md}) {
@@ -92,6 +114,10 @@ $s-xl: 60px !default;
 		padding-right: ($s-xl * $padding) $important;
 	}
 	
+	@media (min-width: #{$bp-xxl}) {
+		padding-right: ($s-xl * $padding) $important;
+	}
+	
 }
 
 /** Example:
@@ -100,7 +126,11 @@ $s-xl: 60px !default;
 @mixin paddingTop($padding: 0.5, $important: null) {
 	
 	// Mobile
-	padding-top: ($s-xs * $padding) $important;
+	padding-top: ($s-xxs * $padding) $important;
+	
+	@media (min-width: #{$bp-xs}) {
+		padding-top: ($s-xxs * $padding) $important;
+	}
 	
 	@media (min-width: #{$bp-sm}) {
 		padding-top: ($s-sm * $padding) $important;
@@ -118,6 +148,10 @@ $s-xl: 60px !default;
 		padding-top: ($s-xl * $padding) $important;
 	}
 	
+	@media (min-width: #{$bp-xxl}) {
+		padding-top: ($s-xl * $padding) $important;
+	}
+	
 }
 
 /** Example:
@@ -126,7 +160,11 @@ $s-xl: 60px !default;
 @mixin paddingBottom($padding: 0.5, $important: null) {
 	
 	// Mobile
-	padding-bottom: ($s-xs * $padding) $important;
+	padding-bottom: ($s-xxs * $padding) $important;
+	
+	@media (min-width: #{$bp-xs}) {
+		padding-bottom: ($s-xxs * $padding) $important;
+	}
 	
 	@media (min-width: #{$bp-sm}) {
 		padding-bottom: ($s-sm * $padding) $important;
@@ -144,6 +182,10 @@ $s-xl: 60px !default;
 		padding-bottom: ($s-xl * $padding) $important;
 	}
 	
+	@media (min-width: #{$bp-xxl}) {
+		padding-bottom: ($s-xl * $padding) $important;
+	}
+	
 }
 
 /** Example:
@@ -152,7 +194,11 @@ $s-xl: 60px !default;
 @mixin margin($top: 0.5, $right: 0.5, $bottom: 0.5, $left: 0.5, $important: null) {
 	
 	// Mobile
-	margin: ($s-xs * $top) ($s-xs * $right) ($s-xs * $bottom) ($s-xs * $left) $important;
+	margin: ($s-xxs * $top) ($s-xxs * $right) ($s-xxs * $bottom) ($s-xxs * $left) $important;
+	
+	@media (min-width: #{$bp-xs}) {
+		margin: ($s-xxs * $top) ($s-xxs * $right) ($s-xxs * $bottom) ($s-xxs * $left) $important;
+	}
 	
 	@media (min-width: #{$bp-sm}) {
 		margin: ($s-sm * $top) ($s-sm * $right) ($s-sm * $bottom) ($s-sm * $left) $important;
@@ -170,6 +216,10 @@ $s-xl: 60px !default;
 		margin: ($s-xl * $top) ($s-xl * $right) ($s-xl * $bottom) ($s-xl * $left) $important;
 	}
 	
+	@media (min-width: #{$bp-xxl}) {
+		margin: ($s-xl * $top) ($s-xl * $right) ($s-xl * $bottom) ($s-xl * $left) $important;
+	}
+	
 }
 
 /** Example:
@@ -178,7 +228,11 @@ $s-xl: 60px !default;
 @mixin marginLeft($margin: 0.5, $important: null) {
 	
 	// Mobile
-	margin-left: ($s-xs * $margin) $important;
+	margin-left: ($s-xxs * $margin) $important;
+	
+	@media (min-width: #{$bp-xs}) {
+		margin-left: ($s-xxs * $margin) $important;
+	}
 	
 	@media (min-width: #{$bp-sm}) {
 		margin-left: ($s-sm * $margin) $important;
@@ -196,6 +250,10 @@ $s-xl: 60px !default;
 		margin-left: ($s-xl * $margin) $important;
 	}
 	
+	@media (min-width: #{$bp-xxl}) {
+		margin-left: ($s-xl * $margin) $important;
+	}
+	
 }
 
 /** Example:
@@ -204,7 +262,11 @@ $s-xl: 60px !default;
 @mixin marginRight($margin: 0.5, $important: null) {
 	
 	// Mobile
-	margin-right: ($s-xs * $margin) $important;
+	margin-right: ($s-xxs * $margin) $important;
+	
+	@media (min-width: #{$bp-xs}) {
+		margin-right: ($s-xxs * $margin) $important;
+	}
 	
 	@media (min-width: #{$bp-sm}) {
 		margin-right: ($s-sm * $margin) $important;
@@ -222,6 +284,10 @@ $s-xl: 60px !default;
 		margin-right: ($s-xl * $margin) $important;
 	}
 	
+	@media (min-width: #{$bp-xxl}) {
+		margin-right: ($s-xl * $margin) $important;
+	}
+	
 }
 
 /** Example:
@@ -230,7 +296,11 @@ $s-xl: 60px !default;
 @mixin marginTop($margin: 0.5, $important: null) {
 	
 	// Mobile
-	margin-top: ($s-xs * $margin) $important;
+	margin-top: ($s-xxs * $margin) $important;
+	
+	@media (min-width: #{$bp-xs}) {
+		margin-top: ($s-xxs * $margin) $important;
+	}
 	
 	@media (min-width: #{$bp-sm}) {
 		margin-top: ($s-sm * $margin) $important;
@@ -247,6 +317,10 @@ $s-xl: 60px !default;
 	@media (min-width: #{$bp-xl}) {
 		margin-top: ($s-xl * $margin) $important;
 	}
+	
+	@media (min-width: #{$bp-xxl}) {
+		margin-top: ($s-xl * $margin) $important;
+	}
 
 }
 
@@ -256,7 +330,11 @@ $s-xl: 60px !default;
 @mixin marginBottom($margin: 0.5, $important: null) {
 	
 	// Mobile
-	margin-bottom: ($s-xs * $margin) $important;
+	margin-bottom: ($s-xxs * $margin) $important;
+	
+	@media (min-width: #{$bp-xs}) {
+		margin-bottom: ($s-xxs * $margin) $important;
+	}
 	
 	@media (min-width: #{$bp-sm}) {
 		margin-bottom: ($s-sm * $margin) $important;
@@ -271,6 +349,10 @@ $s-xl: 60px !default;
 	}
 	
 	@media (min-width: #{$bp-xl}) {
+		margin-bottom: ($s-xl * $margin) $important;
+	}
+	
+	@media (min-width: #{$bp-xxl}) {
 		margin-bottom: ($s-xl * $margin) $important;
 	}
 

@@ -1,7 +1,7 @@
 <!-- Listing view for shows -->
 <template>
   <div class="search show-search-results">
-    <div v-if="results">
+    <div v-if="results.length">
       <div
         v-for="(result, index) in results"
         :key="index"
@@ -68,13 +68,13 @@ const { results } = storeToRefs(store);
 
   &__image {
     width: 100%;
-    @include marginBottom(0.5);
+    @include marginBottom(1.5);
 
     @include media-breakpoint-up(sm) {
       width: 50%;
-      max-width: 200px;
-      @include marginRight(0.5);
-      margin-bottom: 0;
+      max-width: 300px;
+      @include paddingRight(1);
+      @include marginBottom(0);
     }
   }
 

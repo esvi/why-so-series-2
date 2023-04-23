@@ -2,7 +2,7 @@
   <b-navbar toggleable="sm" fixed="top">
     <!-- Logo -->
     <b-navbar-brand :to="{ name: 'home' }">
-      <img src="@/assets/img/logo.png" class="logo" />
+      <img src="@/assets/img/logo.png" class="navbar__logo" />
     </b-navbar-brand>
 
     <!-- Burger menu -->
@@ -32,8 +32,27 @@ import FormSearch from "./FormSearch.vue";
 <style scoped lang="scss">
 @import "../assets/scss/global.scss";
 
-.logo {
-  position: relative;
-  width: 30px;
+.navbar {
+  &__logo {
+    position: relative;
+    width: 30px;
+  }
+
+  // Override Bootstrap
+  ::v-deep .navbar {
+    &-brand {
+      @include marginRight(0.25);
+    }
+
+    &-nav {
+      @include marginRight(0.25);
+    }
+
+    &-toggler {
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
 }
 </style>

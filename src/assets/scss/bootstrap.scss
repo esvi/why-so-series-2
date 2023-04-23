@@ -1,0 +1,95 @@
+.navbar {
+	background: darken($green-highlight, 5) !important;
+
+	& a {
+		color: white !important;
+
+		&:hover {
+			color: $gold-highlight !important;
+		}
+	}
+
+	&-toggler {
+		border: none !important;
+		@include padding(0.12, 0.25, 0.12, 0.25);
+
+		&:hover,
+		&:focus {
+			outline: none !important;
+		}
+	}
+}
+
+form {
+	@include display-flex;
+	@include flex-direction(row);
+	@include flex-wrap(nowrap);
+	@include align-self(center);
+	@include justify-content(flex-start);
+
+	& .btn {
+		background-color: darken($green-highlight, 5);
+		border-color: darken($green-highlight, 5);
+
+		&:hover {
+			background-color: $green-highlight;
+			border-color: $green-highlight;
+		}
+	}
+}
+
+.form-control {
+	border-radius: 0 !important;
+	border: none !important;
+	@include padding(0.12, 0.25, 0.12, 0.25);
+	height: 100%;
+}
+
+a {
+	color: $red-highlight;
+	text-decoration: none;
+	@include transition(all, 0.5s, ease-in-out);
+
+	&:hover {
+		color: lighten($red-highlight, 10);
+		text-decoration: none;
+		@include transition(all, 0.5s, ease-in-out);
+	}
+}
+
+.btn {
+	border-radius: 0 !important;
+	@include transition(all, 0.5s, ease-in-out);
+	@include padding(0.12, 0.25, 0.12, 0.25);
+	text-transform: uppercase;
+
+	&-outline {
+		&-info {
+			color: $green-highlight;
+			border-color: $green-highlight;
+
+			&:hover {
+				background-color: $green-highlight;
+				border-color: $green-highlight;
+			}
+		}
+	}
+}
+
+.nav-tabs {
+	border: none !important;
+
+	& .nav-link {
+		border-radius: 0 !important;
+		border: none !important;
+		color: white;
+		@include transition(all, 0.5s, ease-in-out);
+		@include padding(0.12, 0.25, 0.12, 0.25);
+		text-transform: uppercase;
+
+		&:hover {
+			color: darken(white, 25);
+			@include transition(all, 0.5s, ease-in-out);
+		}
+	}
+}

@@ -1,0 +1,117 @@
+.wss-carousel {
+	$this: &;
+	position: relative;
+	@include marginBottom(1);
+  
+	&__overlay {
+	  cursor: pointer;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 100;
+	  opacity: 0.5;
+	  background: rgba(0, 0, 0, 0.5);
+	  @include transition(opacity, 0.5s, ease-in-out);
+	  @include display-flex;
+	  @include align-items(center);
+	  @include justify-content(center);
+	  @include flex-direction(row);
+	  @include flex-wrap(wrap);
+	  @include paddingLeft(0.25);
+	  @include paddingRight(0.25);
+  
+	  &:hover {
+		opacity: 1;
+		@include transition(opacity, 0.5s, ease-in-out);
+
+		#{$this} {
+			&__text {
+				opacity: 1;
+				@include transition(opacity, 0.5s, ease-in-out);
+			}
+
+			&__rating {
+				background: darken($gold-highlight, 5);
+				@include transition(background-color, 0.5s, ease-in-out);
+			}
+		}
+	  }
+	}
+
+	&__text {
+		opacity: 0;
+		@include transition(opacity, 0.5s, ease-in-out);
+
+		& small {
+			font-size: 0.75rem;
+		}
+	}
+
+	&__rating {
+		position: absolute;
+		min-width: 55px;
+		text-align: center;
+		top: 0;
+		right: 0;
+		padding: 5px;
+		background: darken($green-highlight, 5);
+		color: white;
+		@include transition(background-color, 0.5s, ease-in-out);
+	}
+  
+	// Override Carousel
+	::v-deep .carousel {
+	  &__prev,
+	  &__next {
+		position: absolute;
+		width: 74px;
+		height: 88px;
+		top: 50%;
+		z-index: 200;
+		@include transform(translateY(-50%));
+		@include transition(all, 0.5s, ease-in-out);
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
+		opacity: 0.5;
+		cursor: pointer;
+  
+		& svg {
+		  fill: $green-highlight;
+		  font-size: 48px;
+		  @include transition(all, 0.5s, ease-in-out);
+		  border: 4px solid rgba(0, 0, 0, 0.25);
+		}
+  
+		&:hover {
+		  opacity: 1;
+		  background: rgba(0, 0, 0, 0.25);
+		  @include transition(all, 0.5s, ease-in-out);
+		  background: transparent;
+  
+		  & svg {
+			fill: $gold-highlight;
+			@include transition(all, 0.5s, ease-in-out);
+			border: 4px solid rgba(0, 0, 0, 0);
+			background: rgba(0, 0, 0, 0.25);
+		  }
+		}
+  
+		// Touch screens
+		@media (any-pointer: coarse) and (any-hover: none) {
+		  opacity: 1;
+		  // background: rgba(0, 0, 0, 0.25);
+		}
+	  }
+  
+	  &__prev {
+		left: 0;
+	  }
+  
+	  &__next {
+		right: 0;
+	  }
+	}
+}

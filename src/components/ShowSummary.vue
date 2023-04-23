@@ -64,7 +64,7 @@
     >
       <h3 v-if="props.show.cast" class="show-summary__cast-heading">Cast</h3>
 
-      <CarouselCast v-if="props.show.cast" :cast="props.show.cast" />
+      <CastCarousel v-if="props.show.cast" :cast="props.show.cast" />
     </div>
 
     <!-- Seasons -->
@@ -131,7 +131,7 @@ import { defineProps } from "vue";
 
 // Imports: Components
 import ImageThumbnail from "./ImageThumbnail.vue";
-import CarouselCast from "./CarouselCast.vue";
+import CastCarousel from "./CastCarousel.vue";
 import StarRating from "./StarRating.vue";
 
 // Props

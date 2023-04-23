@@ -1,20 +1,22 @@
 <template>
   <div v-show="rating" class="star-rating">
     <!-- No rating -->
-    <div v-if="!rating || rating === 0">
+    <div v-if="!rating || rating === 0" class="star-rating__stars">
       <font-awesome-icon icon="star-half" />
     </div>
 
     <!-- Stars -->
-    <div v-else>
-      <div v-for="index in floorRating" :key="index">
-        <font-awesome-icon icon="star" />
-      </div>
+    <div v-else class="star-rating__stars">
+      <font-awesome-icon
+        v-for="index in floorRating"
+        :key="index"
+        icon="star"
+      />
 
-      <div v-if="rating > floorRating">
-        <font-awesome-icon icon="star-half" />
-      </div>
+      <font-awesome-icon v-if="rating > floorRating" icon="star-half" />
     </div>
+
+    <small>({{ rating }})</small>
   </div>
 </template>
 
@@ -37,15 +39,20 @@ const floorRating = computed(() => Math.floor(props.rating));
 .star-rating {
   @include display-flex;
   @include flex-direction(row);
-  @include flex-wrap(nowrap);
-  @include align-items(center);
-  @include justify-content(flex-start);
 
   & svg {
     font-size: 18px;
     margin-right: 5px;
     width: 20px;
     height: 20px;
+  }
+
+  &__stars {
+    @include display-flex;
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    @include align-items(center);
+    @include justify-content(flex-start);
   }
 }
 </style>

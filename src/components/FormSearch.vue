@@ -3,6 +3,7 @@
   <b-nav-form v-if="props.type === 'nav'" @submit.prevent="search">
     <!-- Input -->
     <b-form-input
+      class="mr-1"
       placeholder="Find a show"
       name="query"
       :value="queryString"
@@ -15,7 +16,11 @@
   </b-nav-form>
 
   <!-- Error page -->
-  <b-form v-else-if="props.type === 'error'" @submit.prevent="search" inline>
+  <b-nav-form
+    v-else-if="props.type === 'error'"
+    @submit.prevent="search"
+    inline
+  >
     <!-- Input -->
     <b-form-input
       placeholder="Find another show"
@@ -27,10 +32,10 @@
     <b-button size="sm" variant="info" type="submit">
       <font-awesome-icon icon="search" />
     </b-button>
-  </b-form>
+  </b-nav-form>
 
   <!-- Search results page -->
-  <b-form v-else @submit.prevent="search" inline>
+  <b-nav-form v-else @submit.prevent="search" inline>
     <!-- Input -->
     <b-form-input
       placeholder="Find another show"
@@ -42,7 +47,7 @@
     <b-button size="sm" variant="info" type="submit">
       <font-awesome-icon icon="search" />
     </b-button>
-  </b-form>
+  </b-nav-form>
 </template>
 
 <script setup lang="ts">
@@ -77,4 +82,18 @@ function search(event: any) {
 
 <style scoped lang="scss">
 @import "../assets/scss/global.scss";
+
+form {
+  width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    width: auto;
+    max-width: 576px;
+  }
+
+  // Override Bootstrap
+  ::v-deep button {
+    color: white !important;
+  }
+}
 </style>

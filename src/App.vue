@@ -1,7 +1,5 @@
 <template>
-  <nav>
-    <NavBar />
-  </nav>
+  <NavBar />
   <router-view />
 </template>
 
@@ -27,7 +25,23 @@ store.getAllShows();
   color: white;
   width: 100%;
   min-height: 100vh;
-  @include paddingTop(0.5);
+  @include padding(4, 1, 1, 1);
+
+  @include media-breakpoint-up(sm) {
+    @include padding(4, 1, 1, 1);
+  }
+
+  @include media-breakpoint-up(md) {
+    @include padding(3.5, 1, 1, 1);
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include padding(2.5, 1, 1, 1);
+  }
+
+  @include media-breakpoint-up(xl) {
+    @include padding(2, 1, 1, 1);
+  }
 }
 
 #content {
