@@ -29,5 +29,4 @@ docker compose up
 - API + Axios ([MazeTv](https://www.tvmaze.com/api))
 
 #### TODO
-- Testing (Jest)
-- Styling
+- Testing
