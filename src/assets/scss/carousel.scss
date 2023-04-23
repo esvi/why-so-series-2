@@ -12,8 +12,8 @@
 	  height: 100%;
 	  z-index: 100;
 	  opacity: 0.5;
-	  background: rgba(0, 0, 0, 0.5);
-	  @include transition(opacity, 0.5s, ease-in-out);
+	  background: rgba(0, 0, 0, 0.125);
+	  @include transition(all, 0.5s, ease-in-out);
 	  @include display-flex;
 	  @include align-items(center);
 	  @include justify-content(center);
@@ -23,8 +23,9 @@
 	  @include paddingRight(0.25);
   
 	  &:hover {
+		background: rgba(0, 0, 0, 0.75);
 		opacity: 1;
-		@include transition(opacity, 0.5s, ease-in-out);
+		@include transition(all, 0.5s, ease-in-out);
 
 		#{$this} {
 			&__text {
