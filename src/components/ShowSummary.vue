@@ -169,6 +169,14 @@ const props = defineProps<{
     @include marginTop(0.5);
   }
 
+  &__link {
+    ::v-deep button {
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
   &__cast,
   &__seasons {
     position: relative;
