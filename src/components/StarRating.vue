@@ -1,6 +1,6 @@
 <template>
   <div v-show="rating" class="star-rating">
-    <!-- No rating -->
+    <!-- No rating (But default to .5 star) -->
     <div v-if="!rating || rating === 0" class="star-rating__stars">
       <font-awesome-icon icon="star-half" />
     </div>
@@ -13,6 +13,7 @@
         icon="star"
       />
 
+      <!-- If rating is not round number show some indication with .5 star -->
       <font-awesome-icon v-if="rating > floorRating" icon="star-half" />
     </div>
 
@@ -21,15 +22,11 @@
 </template>
 
 <script setup lang="ts">
-// Imports: Vue
 import { defineProps, computed } from "vue";
 
-// Props: Component
 const props = defineProps<{
   rating: number;
 }>();
-
-// Props: Computed
 const floorRating = computed(() => Math.floor(props.rating));
 </script>
 

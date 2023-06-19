@@ -13,14 +13,10 @@
 </template>
 
 <script setup lang="ts">
-// Imports: Store
 import { storeToRefs } from "pinia";
 import { useSeriesStore } from "../store";
-
-// Imports: Components
 import ShowCarousel from "@/components/ShowCarousel.vue";
 
-// Props: Store
 const store = useSeriesStore();
 const { genres } = storeToRefs(store);
 </script>

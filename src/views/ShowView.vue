@@ -14,33 +14,20 @@
 </template>
 
 <script setup lang="ts">
-// Imports: Store
 import { storeToRefs } from "pinia";
 import { useSeriesStore } from "../store";
-
-// Imports: Router
 import { useRoute } from "vue-router";
-
-// Imports: Vue
 import { onMounted, computed } from "vue";
-
-// Imports: Components
 import ShowSummary from "../components/ShowSummary.vue";
 import ImageThumbnail from "../components/ImageThumbnail.vue";
 
-// Props: Store
 const store = useSeriesStore();
 const { show } = storeToRefs(store);
-
-// Props: Router
 const route = useRoute();
-
-// Props: Computed
 const id = computed(() => route.params.id);
 
-// Hooks
 onMounted(() => {
-  store.getShowById(id.value.toString()); // Make sure ID is of type string
+  store.getShowById(id.value as string);
 });
 </script>
 

@@ -1,7 +1,12 @@
 import { defineStore } from "pinia";
-import MazeTvService from "../services/MazeTvService";
-import ResponseData from "@/types/ResponseData";
+import MazeTvService from "../services";
 import router from "../router";
+import {
+  ShowsResponse,
+  ShowResponse,
+  SearchedShowsResponse,
+  Episode,
+} from "@/types";
 
 export const useSeriesStore = defineStore("series", {
   state: () => ({
@@ -13,12 +18,10 @@ export const useSeriesStore = defineStore("series", {
   actions: {
     async getAllShows() {
       MazeTvService.getAll()
-        .then((response: ResponseData) => {
+        .then((response: ShowsResponse) => {
           this.shows = response.data;
 
-          // Due to the way the MazeTV free API works
-          // we have to do some magic to get usable
-          // genre data
+          // Find available genre data
           this.genres = this.getSortedGenres(this.shows);
         })
         .catch((error: Error) => {
@@ -27,7 +30,8 @@ export const useSeriesStore = defineStore("series", {
     },
     async getShowById(id: string) {
       MazeTvService.getById(id)
-        .then((response: ResponseData) => {
+        .then((response: ShowResponse) => {
+          // Find complete season/episode data
           this.show = this.getEmbeddedShowsData(response.data);
         })
         .catch((error: Error) => {
@@ -38,9 +42,10 @@ export const useSeriesStore = defineStore("series", {
       const path = "/search";
 
       MazeTvService.getByQuery(query)
-        .then((response: ResponseData) => {
+        .then((response: SearchedShowsResponse) => {
           this.results = response.data;
 
+          // Navigate to result
           router.push({ path });
         })
         .catch((error: Error) => {
@@ -48,6 +53,8 @@ export const useSeriesStore = defineStore("series", {
         });
     },
     getSortedGenres(shows: any) {
+      // The FREE API does not give us a collection of
+      // available genres
       const allShows = shows || [];
       const unsortedGenres = <any>{};
       let sortedGenres = <any>[];
@@ -82,6 +89,8 @@ export const useSeriesStore = defineStore("series", {
       return sortedGenres;
     },
     getEmbeddedShowsData(show: any) {
+      // Due to the way the FREE API works we have to do some behind
+      // the scenes magic to get usable season/episode data
       const aShow = show || {};
 
       // Break up episodes into seasons
@@ -93,9 +102,11 @@ export const useSeriesStore = defineStore("series", {
           const episode = aShow._embedded.episodes[i];
           const season = episode.season;
 
+          // If the season hasn't been initiliased...
           if (!aShow.seasons[season]) aShow.seasons[season] = [];
 
-          aShow.seasons[season].push(episode);
+          // Finally add episode to season
+          aShow.seasons[season].push(episode as Episode);
         }
       }
 

@@ -126,15 +126,11 @@
 </template>
 
 <script setup lang="ts">
-// Imports: Vue
 import { defineProps } from "vue";
-
-// Imports: Components
 import ImageThumbnail from "./ImageThumbnail.vue";
 import CastCarousel from "./CastCarousel.vue";
 import StarRating from "./StarRating.vue";
 
-// Props
 const props = defineProps<{
   show: any;
   type: string;

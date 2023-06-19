@@ -1,14 +1,12 @@
 <template>
-  <picture class="image-thumbnail">
+  <picture v-if="image" class="image-thumbnail">
     <img :src="props.image" />
   </picture>
 </template>
 
 <script setup lang="ts">
-// Imports
 import { defineProps } from "vue";
 
-// Props
 const props = defineProps<{
   image: string;
 }>();

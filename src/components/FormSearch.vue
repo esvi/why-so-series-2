@@ -1,6 +1,6 @@
 <template>
   <!-- Navbar -->
-  <b-nav-form v-if="props.type === 'nav'" @submit.prevent="search">
+  <b-nav-form v-if="props.section === 'nav'" @submit.prevent="search">
     <!-- Input -->
     <b-form-input
       class="mr-1"
@@ -15,9 +15,9 @@
     </b-button>
   </b-nav-form>
 
-  <!-- Error page -->
+  <!-- Error -->
   <b-nav-form
-    v-else-if="props.type === 'error'"
+    v-else-if="props.section === 'error'"
     @submit.prevent="search"
     inline
   >
@@ -34,7 +34,7 @@
     </b-button>
   </b-nav-form>
 
-  <!-- Search results page -->
+  <!-- Search -->
   <b-nav-form v-else @submit.prevent="search" inline>
     <!-- Input -->
     <b-form-input
@@ -51,32 +51,21 @@
 </template>
 
 <script setup lang="ts">
-// Imports: Store
 import { useSeriesStore } from "../store";
-
-// Imports: Vue
 import { computed, defineProps } from "vue";
-
-// Imports: Router
 import { useRoute } from "vue-router";
 
-// Props: Store
 const store = useSeriesStore();
-
-// Props: Component
-const props = defineProps<{
-  type: string;
-}>();
-
-// Props: Router
 const route = useRoute();
 
-// Props: Computed
+// TODO: Create interface
+const props = defineProps<{
+  section: "nav" | "error" | "search";
+}>();
 const queryString = computed(() => route.params.q);
 
-// Methods
 function search(event: any) {
-  store.getShowsByQuery(event.target.elements.query.value.toString());
+  store.getShowsByQuery(event.target.elements.query.value as string);
 }
 </script>
 

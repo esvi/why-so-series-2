@@ -1,13 +1,14 @@
 <!-- Listing view for shows -->
 <template>
   <div class="search show-search-results">
+    <!-- Results -->
     <div v-if="results.length">
       <div
         v-for="(result, index) in results"
         :key="index"
         class="show-search-results__results"
       >
-        <!-- Thumbnail -->
+        <!-- Thumbnail (with link) -->
         <div class="show-search-results__image">
           <router-link :to="{ path: '/show/' + result.show.id }">
             <ImageThumbnail
@@ -17,31 +18,37 @@
           </router-link>
         </div>
 
+        <!-- Summary -->
         <div class="show-search-results__meta">
           <ShowSummary :show="result.show" :type="'search'" />
         </div>
       </div>
     </div>
 
+    <!-- Error Message -->
     <div v-else>
-      <ErrorMessage />
+      <ErrorMessage :message="errorMessage" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// Imports: Store
+import { Message } from "@/types";
 import { storeToRefs } from "pinia";
 import { useSeriesStore } from "../store";
-
-// Imports: Components
 import ShowSummary from "../components/ShowSummary.vue";
 import ErrorMessage from "../components/ErrorMessage.vue";
 import ImageThumbnail from "../components/ImageThumbnail.vue";
 
-// Props: Store
 const store = useSeriesStore();
 const { results } = storeToRefs(store);
+
+const errorMessage = {
+  type: "error",
+  name: "Oh no :(",
+  description:
+    "That show doesn't seem to be available yet, or something went horribly wrong!",
+} as Message;
 </script>
 
 <style scoped lang="scss">

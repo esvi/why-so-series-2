@@ -1,21 +1,23 @@
 <template>
-  <section class="error-message error">
+  <section v-if="message" class="error-message error">
     <section class="error-message__text">
-      <h1>Oh no :(</h1>
-      <h3>
-        That show doesn't seem to be available yet... or something went horribly
-        wrong!
-      </h3>
+      <h1 v-text="message.name"></h1>
+      <h3 v-text="message.description"></h3>
     </section>
     <section class="error-message_search">
-      <FormSearch :type="'error'" />
+      <FormSearch :section="'error'" />
     </section>
   </section>
 </template>
 
 <script setup lang="ts">
-// Imports
+import { defineProps } from "vue";
 import FormSearch from "./FormSearch.vue";
+import { Message } from "@/types";
+
+const props = defineProps<{
+  message: Message;
+}>();
 </script>
 
 <style scoped lang="scss">

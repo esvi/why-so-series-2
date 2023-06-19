@@ -18,14 +18,13 @@
 
       <!-- Search -->
       <b-navbar-nav class="ml-auto">
-        <FormSearch :type="'nav'" />
+        <FormSearch :section="'nav'" />
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>
 
 <script setup lang="ts">
-// Imports
 import FormSearch from "./FormSearch.vue";
 </script>
 

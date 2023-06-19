@@ -1,7 +1,7 @@
 <template>
   <section class="show-carousel wss-carousel">
     <!-- Carousel -->
-    <Carousel v-bind="settings" :breakpoints="breakpoints">
+    <Carousel v-bind="settings">
       <!-- Slide -->
       <Slide v-for="(show, index) in props.shows" :key="index">
         <div class="wss-carousel__item">
@@ -43,43 +43,37 @@
 </template>
 
 <script setup lang="ts">
-// Imports: Vue
 import { defineProps } from "vue";
-
-// Imports: Third-party
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-
-// Imports: Components
 import ImageThumbnail from "./ImageThumbnail.vue";
 
-// Props: Component
 const props = defineProps<{
   shows: Array<any>;
 }>();
 
-// Props: Carousel
+// TODO: Create interface
 const settings = {
   itemsToShow: 1.5,
   itemsToScroll: 1,
   wrapAround: true,
   transition: 500,
   snapAlign: "left",
-};
-const breakpoints = {
-  360: { itemsToShow: 2.5, itemsToScroll: 2 },
-  576: { itemsToShow: 3.5, itemsToScroll: 3 },
-  768: { itemsToShow: 4.5, itemsToScroll: 4 },
-  960: { itemsToShow: 5.5, itemsToScroll: 5 },
-  1025: { itemsToShow: 6.5, itemsToScroll: 6 },
-  1200: { itemsToShow: 7.5, itemsToScroll: 7 },
-  1400: { itemsToShow: 8.5, itemsToScroll: 8 },
-  1600: { itemsToShow: 9.5, itemsToScroll: 9 },
-  1800: { itemsToShow: 10.5, itemsToScroll: 10 },
-  2000: { itemsToShow: 11.5, itemsToScroll: 11 },
-  2200: { itemsToShow: 12.5, itemsToScroll: 12 },
-  2400: { itemsToShow: 14.5, itemsToScroll: 14 },
-  2600: { itemsToShow: 16.5, itemsToScroll: 16 },
+  breakpoints: {
+    360: { itemsToShow: 2.5, itemsToScroll: 2 },
+    576: { itemsToShow: 3.5, itemsToScroll: 3 },
+    768: { itemsToShow: 4.5, itemsToScroll: 4 },
+    960: { itemsToShow: 5.5, itemsToScroll: 5 },
+    1025: { itemsToShow: 6.5, itemsToScroll: 6 },
+    1200: { itemsToShow: 7.5, itemsToScroll: 7 },
+    1400: { itemsToShow: 8.5, itemsToScroll: 8 },
+    1600: { itemsToShow: 9.5, itemsToScroll: 9 },
+    1800: { itemsToShow: 10.5, itemsToScroll: 10 },
+    2000: { itemsToShow: 11.5, itemsToScroll: 11 },
+    2200: { itemsToShow: 12.5, itemsToScroll: 12 },
+    2400: { itemsToShow: 14.5, itemsToScroll: 14 },
+    2600: { itemsToShow: 16.5, itemsToScroll: 16 },
+  },
 };
 </script>
 
