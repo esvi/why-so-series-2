@@ -81,10 +81,12 @@ onMounted(() => {
 
   &__cast {
     grid-area: cast;
+    @include dashed-border-top;
   }
 
   &__index {
     grid-area: index;
+    @include dashed-border-top;
   }
 }
 </style>

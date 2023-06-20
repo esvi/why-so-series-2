@@ -1,13 +1,17 @@
 /** Example:
-	@include dashed-border;
+	@include dashed-border-top;
+	@include dashed-border-bottom;
  */
-@mixin dashed-border($important: null) {
-	border-bottom: 1px dashed $gold-highlight $important;
+@mixin dashed-border-top($important: null) {
+	border-top: 1px dashed $green-highlight $important;
+}
+@mixin dashed-border-bottom($important: null) {
+	border-bottom: 1px dashed $green-highlight $important;
 }
 
 /** Example:
-	@include no-dashed-border;
+	@include no-dashed-border-bottom;
  */
-@mixin no-dashed-border($important: null) {
-	border-bottom: 0 $important;
+@mixin no-dashed-border-bottom($important: null) {
+	border: 0 $important;
 }

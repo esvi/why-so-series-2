@@ -81,7 +81,17 @@ const props = defineProps<{
           width: 3.125rem;
           height: 3.125rem;
           padding: 0.313rem !important;
-          margin: 0 !important;
+          margin: 0 1px 0 0 !important;
+          color: $green-highlight;
+          border: 1px solid $green-highlight !important;
+          @include transition(all, 0.5s, ease-in-out);
+
+          &.active,
+          &:hover {
+            color: white;
+            background-color: $green-highlight;
+            @include transition(all, 0.5s, ease-in-out);
+          }
         }
       }
     }
@@ -94,7 +104,7 @@ const props = defineProps<{
     grid-template-areas: "image" "meta";
     @include padding-bottom(0.5);
     @include padding-top(0.5);
-    @include dashed-border;
+    @include dashed-border-bottom;
 
     @include media-breakpoint-up(md) {
       grid-template-columns: 50% 50%;
@@ -106,7 +116,7 @@ const props = defineProps<{
     }
 
     &:last-of-type {
-      @include no-dashed-border;
+      @include no-dashed-border-bottom;
     }
 
     &-image {

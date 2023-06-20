@@ -103,8 +103,7 @@ const props = defineProps<{
   }
 
   &__meta {
-    @include padding-bottom(0.75);
-    @include dashed-border;
+    @include padding-bottom(0.5);
   }
 
   &__genres {
@@ -112,8 +111,10 @@ const props = defineProps<{
   }
 
   &__plot {
-    @include margin-top(0.75);
+    @include margin-top(0.5);
+    @include padding-top(0.5);
     @include padding-right(1);
+    @include dashed-border-top;
 
     &-heading {
       @include margin-bottom(0.5);

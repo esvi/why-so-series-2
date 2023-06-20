@@ -34,7 +34,7 @@ const { genres } = storeToRefs(store);
 
   &__reel {
     @include margin-bottom(0.75);
-    @include dashed-border;
+    @include dashed-border-bottom;
   }
 }
 </style>

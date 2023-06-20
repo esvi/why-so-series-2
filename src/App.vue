@@ -16,8 +16,8 @@ store.getAllShows();
 @import "./assets/scss/global.scss";
 
 #app {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   width: 100%;
   min-height: 100vh;
   @include padding(4, 1, 1, 1);

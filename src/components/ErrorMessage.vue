@@ -27,7 +27,7 @@ const props = defineProps<{
   &__text {
     @include margin-bottom(0.5);
     @include padding-bottom(0.5);
-    @include dashed-border;
+    @include dashed-border-bottom;
   }
 }
 </style>

@@ -38,6 +38,7 @@ const floorRating = computed(() => Math.floor(props.rating));
   @include flex-direction(row);
 
   & svg {
+    color: $gold-highlight;
     font-size: 1.125rem;
     margin-right: 0.313rem;
     width: 1.25rem;

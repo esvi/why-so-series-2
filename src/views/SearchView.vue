@@ -62,10 +62,10 @@ const errorMessage = {
     @include justify-content(flex-start);
     @include margin-bottom(0.5);
     @include padding-bottom(0.5);
-    @include dashed-border;
+    @include dashed-border-bottom;
 
     &:last-of-type {
-      @include no-dashed-border;
+      @include no-dashed-border-bottom;
     }
 
     @include media-breakpoint-up(sm) {
