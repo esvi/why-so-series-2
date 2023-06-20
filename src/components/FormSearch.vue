@@ -77,7 +77,7 @@ form {
 
   @include media-breakpoint-up(sm) {
     width: auto;
-    max-width: 576px;
+    max-width: 36rem;
   }
 
   // Override Bootstrap

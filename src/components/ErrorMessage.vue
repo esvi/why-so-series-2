@@ -25,9 +25,9 @@ const props = defineProps<{
 
 .error-message {
   &__text {
-    @include marginBottom(0.5);
-    @include paddingBottom(0.5);
-    border-bottom: 1px dashed $gold-highlight;
+    @include margin-bottom(0.5);
+    @include padding-bottom(0.5);
+    @include dashed-border;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div v-show="rating" class="star-rating">
+  <section v-show="rating" class="star-rating">
     <!-- No rating (But default to .5 star) -->
     <div v-if="!rating || rating === 0" class="star-rating__stars">
       <font-awesome-icon icon="star-half" />
@@ -18,7 +18,7 @@
     </div>
 
     <small>({{ rating }})</small>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -38,10 +38,10 @@ const floorRating = computed(() => Math.floor(props.rating));
   @include flex-direction(row);
 
   & svg {
-    font-size: 18px;
-    margin-right: 5px;
-    width: 20px;
-    height: 20px;
+    font-size: 1.125rem;
+    margin-right: 0.313rem;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   &__stars {

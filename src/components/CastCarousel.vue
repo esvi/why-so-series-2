@@ -52,12 +52,19 @@ const settings = {
   transition: 500,
   snapAlign: "left",
   breakpoints: {
+    360: { itemsToShow: 2.5, itemsToScroll: 2 },
     576: { itemsToShow: 3.5, itemsToScroll: 3 },
     768: { itemsToShow: 4.5, itemsToScroll: 4 },
-    992: { itemsToShow: 5.5, itemsToScroll: 5 },
-    1200: { itemsToShow: 5.5, itemsToScroll: 5 },
-    1400: { itemsToShow: 7.5, itemsToScroll: 7 },
-    1600: { itemsToShow: 8.5, itemsToScroll: 8 },
+    960: { itemsToShow: 5.5, itemsToScroll: 5 },
+    1025: { itemsToShow: 6.5, itemsToScroll: 6 },
+    1200: { itemsToShow: 7.5, itemsToScroll: 7 },
+    1400: { itemsToShow: 8.5, itemsToScroll: 8 },
+    1600: { itemsToShow: 9.5, itemsToScroll: 9 },
+    1800: { itemsToShow: 10.5, itemsToScroll: 10 },
+    2000: { itemsToShow: 11.5, itemsToScroll: 11 },
+    2200: { itemsToShow: 12.5, itemsToScroll: 12 },
+    2400: { itemsToShow: 14.5, itemsToScroll: 14 },
+    2600: { itemsToShow: 16.5, itemsToScroll: 16 },
   },
 };
 </script>

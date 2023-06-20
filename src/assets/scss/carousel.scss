@@ -1,7 +1,7 @@
 .wss-carousel {
 	$this: &;
 	position: relative;
-	@include marginBottom(1);
+	@include margin-bottom(1);
   
 	&__overlay {
 	  cursor: pointer;
@@ -19,8 +19,8 @@
 	  @include justify-content(center);
 	  @include flex-direction(row);
 	  @include flex-wrap(wrap);
-	  @include paddingLeft(0.25);
-	  @include paddingRight(0.25);
+	  @include padding-left(0.25);
+	  @include padding-right(0.25);
   
 	  &:hover {
 		background: rgba(0, 0, 0, 0.75);
@@ -52,11 +52,12 @@
 
 	&__rating {
 		position: absolute;
-		min-width: 55px;
+		width: 2.5rem;
+		height: 2.5rem;
 		text-align: center;
 		top: 0;
 		right: 0;
-		padding: 5px;
+		padding: 0.313rem;
 		background: darken($green-highlight, 5);
 		color: white;
 		@include transition(background-color, 0.5s, ease-in-out);
@@ -67,8 +68,8 @@
 	  &__prev,
 	  &__next {
 		position: absolute;
-		width: 74px;
-		height: 88px;
+		width: 4.625rem;
+		height: 5.5rem;
 		top: 50%;
 		z-index: 200;
 		@include transform(translateY(-50%));
@@ -81,7 +82,7 @@
   
 		& svg {
 		  fill: $green-highlight;
-		  font-size: 48px;
+		  font-size: 3rem;
 		  @include transition(all, 0.5s, ease-in-out);
 		  border: 4px solid rgba(0, 0, 0, 0.25);
 		}
@@ -103,7 +104,6 @@
 		// Touch screens
 		@media (any-pointer: coarse) and (any-hover: none) {
 		  opacity: 1;
-		  // background: rgba(0, 0, 0, 0.25);
 		}
 	  }
   

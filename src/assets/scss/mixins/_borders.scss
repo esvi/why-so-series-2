@@ -1,0 +1,13 @@
+/** Example:
+	@include dashed-border;
+ */
+@mixin dashed-border($important: null) {
+	border-bottom: 1px dashed $gold-highlight $important;
+}
+
+/** Example:
+	@include no-dashed-border;
+ */
+@mixin no-dashed-border($important: null) {
+	border-bottom: 0 $important;
+}

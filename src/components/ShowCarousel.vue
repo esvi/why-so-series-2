@@ -12,7 +12,6 @@
             <div class="wss-carousel__overlay">
               <!-- Star rating -->
               <div v-if="show.rating" class="wss-carousel__rating">
-                <font-awesome-icon icon="star" />
                 {{ show.rating.average }}
               </div>
 
@@ -25,8 +24,8 @@
 
                 <hr />
 
-                <small v-if="show.premiered" class="d-block">
-                  Premiered {{ show.premiered }}
+                <small v-if="show.premiered || show.ended" class="d-block">
+                  {{ datesToRuntime(show.premiered, show.ended) }}
                 </small>
               </h4>
             </div>
@@ -46,6 +45,7 @@
 import { defineProps } from "vue";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
+import { datesToRuntime } from "../filters";
 import ImageThumbnail from "./ImageThumbnail.vue";
 
 const props = defineProps<{

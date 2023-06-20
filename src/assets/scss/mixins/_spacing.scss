@@ -53,9 +53,9 @@ $s-xl: 60px !default;
 }
 
 /** Example:
-	 @include paddingLeft(0.75, !important);
+	 @include padding-left(0.75, !important);
  */
-@mixin paddingLeft($padding: 0.5, $important: null) {
+@mixin padding-left($padding: 0.5, $important: null) {
 	
 	// Mobile
 	padding-left: ($s-xxs * $padding) $important;
@@ -87,9 +87,9 @@ $s-xl: 60px !default;
 }
 
 /** Example:
-	 @include paddingRight(0.75, !important);
+	 @include padding-right(0.75, !important);
  */
-@mixin paddingRight($padding: 0.5, $important: null) {
+@mixin padding-right($padding: 0.5, $important: null) {
 	
 	// Mobile
 	padding-right: ($s-xxs * $padding) $important;
@@ -121,9 +121,9 @@ $s-xl: 60px !default;
 }
 
 /** Example:
-	 @include paddingTop(0.75, !important);
+	 @include padding-top(0.75, !important);
  */
-@mixin paddingTop($padding: 0.5, $important: null) {
+@mixin padding-top($padding: 0.5, $important: null) {
 	
 	// Mobile
 	padding-top: ($s-xxs * $padding) $important;
@@ -155,9 +155,9 @@ $s-xl: 60px !default;
 }
 
 /** Example:
-	 @include paddingBottom(0.75, !important);
+	 @include padding-bottom(0.75, !important);
  */
-@mixin paddingBottom($padding: 0.5, $important: null) {
+@mixin padding-bottom($padding: 0.5, $important: null) {
 	
 	// Mobile
 	padding-bottom: ($s-xxs * $padding) $important;
@@ -223,9 +223,9 @@ $s-xl: 60px !default;
 }
 
 /** Example:
-	 @include marginLeft(0.75, !important);
+	 @include margin-left(0.75, !important);
  */
-@mixin marginLeft($margin: 0.5, $important: null) {
+@mixin margin-left($margin: 0.5, $important: null) {
 	
 	// Mobile
 	margin-left: ($s-xxs * $margin) $important;
@@ -257,9 +257,9 @@ $s-xl: 60px !default;
 }
 
 /** Example:
-	 @include marginRight(0.75, !important);
+	 @include margin-right(0.75, !important);
  */
-@mixin marginRight($margin: 0.5, $important: null) {
+@mixin margin-right($margin: 0.5, $important: null) {
 	
 	// Mobile
 	margin-right: ($s-xxs * $margin) $important;
@@ -291,9 +291,9 @@ $s-xl: 60px !default;
 }
 
 /** Example:
-	 @include marginTop(0.75, !important);
+	 @include margin-top(0.75, !important);
  */
-@mixin marginTop($margin: 0.5, $important: null) {
+@mixin margin-top($margin: 0.5, $important: null) {
 	
 	// Mobile
 	margin-top: ($s-xxs * $margin) $important;
@@ -325,9 +325,9 @@ $s-xl: 60px !default;
 }
 
 /** Example:
-	 @include marginBottom(0.75, !important);
+	 @include margin-bottom(0.75, !important);
  */
-@mixin marginBottom($margin: 0.5, $important: null) {
+@mixin margin-bottom($margin: 0.5, $important: null) {
 	
 	// Mobile
 	margin-bottom: ($s-xxs * $margin) $important;

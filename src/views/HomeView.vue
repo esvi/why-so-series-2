@@ -6,7 +6,9 @@
         <h2 class="show-listing__heading" v-text="genre.genre"></h2>
 
         <!-- Show reel -->
-        <ShowCarousel v-if="genre.shows" :shows="genre.shows" />
+        <section class="show-listing__reel">
+          <ShowCarousel v-if="genre.shows" :shows="genre.shows" />
+        </section>
       </div>
     </section>
   </div>
@@ -26,9 +28,13 @@ const { genres } = storeToRefs(store);
 
 .show-listing {
   &__heading {
-    @include marginBottom(0.5);
-    @include padding(0, 0.75, 0.25, 0.75);
-    border-bottom: 1px dashed $gold-highlight;
+    @include margin-bottom(0.5);
+    text-transform: uppercase;
+  }
+
+  &__reel {
+    @include margin-bottom(0.75);
+    @include dashed-border;
   }
 }
 </style>

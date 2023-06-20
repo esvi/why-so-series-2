@@ -1,35 +1,35 @@
 <!-- Listing view for shows -->
 <template>
-  <div class="search show-search-results">
+  <section class="search show-search-results">
     <!-- Results -->
-    <div v-if="results.length">
-      <div
+    <section v-if="results.length">
+      <section
         v-for="(result, index) in results"
         :key="index"
         class="show-search-results__results"
       >
         <!-- Thumbnail (with link) -->
-        <div class="show-search-results__image">
+        <section class="show-search-results__image">
           <router-link :to="{ path: '/show/' + result.show.id }">
             <ImageThumbnail
               v-if="result.show.image"
               :image="result.show.image.original"
             />
           </router-link>
-        </div>
+        </section>
 
         <!-- Summary -->
-        <div class="show-search-results__meta">
+        <section class="show-search-results__meta">
           <ShowSummary :show="result.show" :type="'search'" />
-        </div>
-      </div>
-    </div>
+        </section>
+      </section>
+    </section>
 
     <!-- Error Message -->
-    <div v-else>
+    <section v-else>
       <ErrorMessage :message="errorMessage" />
-    </div>
-  </div>
+    </section>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -60,12 +60,12 @@ const errorMessage = {
     @include flex-direction(column);
     @include align-items(flex-start);
     @include justify-content(flex-start);
-    @include marginBottom(0.5);
-    @include paddingBottom(0.5);
-    border-bottom: 1px dashed $gold-highlight;
+    @include margin-bottom(0.5);
+    @include padding-bottom(0.5);
+    @include dashed-border;
 
     &:last-of-type {
-      border-bottom: 0;
+      @include no-dashed-border;
     }
 
     @include media-breakpoint-up(sm) {
@@ -75,13 +75,13 @@ const errorMessage = {
 
   &__image {
     width: 100%;
-    @include marginBottom(1.5);
+    @include margin-bottom(1.5);
 
     @include media-breakpoint-up(sm) {
       width: 50%;
-      max-width: 300px;
-      @include paddingRight(1);
-      @include marginBottom(0);
+      max-width: 18.75rem;
+      @include padding-right(1);
+      @include margin-bottom(0);
     }
   }
 

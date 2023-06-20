@@ -40,7 +40,7 @@ store.getAllShows();
 }
 
 #content {
-  @include paddingTop(1);
-  @include paddingBottom(1);
+  @include padding-top(1);
+  @include padding-bottom(1);
 }
 </style>

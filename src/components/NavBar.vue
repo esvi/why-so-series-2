@@ -34,17 +34,17 @@ import FormSearch from "./FormSearch.vue";
 .navbar {
   &__logo {
     position: relative;
-    width: 30px;
+    width: 1.875rem;
   }
 
   // Override Bootstrap
   ::v-deep .navbar {
     &-brand {
-      @include marginRight(0.25);
+      @include margin-right(0.25);
     }
 
     &-nav {
-      @include marginRight(0.25);
+      @include margin-right(0.25);
     }
 
     &-toggler {

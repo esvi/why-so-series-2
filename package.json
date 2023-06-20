@@ -19,9 +19,11 @@
     "bootstrap-vue": "^2.23.1",
     "bootstrap-vue-next": "^0.8.6",
     "core-js": "^3.8.3",
+    "momentjs": "^2.0.0",
     "pinia": "^2.0.28",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
+    "vue-moment": "^4.1.0",
     "vue-owl-carousel": "^2.0.3",
     "vue-router": "^4.0.3",
     "vue3-carousel": "^0.3.0"
